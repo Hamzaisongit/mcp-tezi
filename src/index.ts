@@ -35,8 +35,9 @@ app.post('/mcp', async (c) => {
     await server.connect(transport)
 
     await transport.handleRequest(req, res, await c.req.json())
-
+   
     return toFetchResponse(res);
+
   } catch (e: unknown) {
     console.log(e)
     return c.json(
